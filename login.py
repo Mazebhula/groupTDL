@@ -11,16 +11,17 @@ def create_user():
      return
  
 def login():
+     
     import hashlib
     from getpass import getpass
     print("welcome please login below")
     username = input('username: ')
     pasid = hashlib.sha256(getpass('password: ').encode()).hexdigest()
     if pasid== users[username]:
-        print('welcome')
+        print('GTF0')
         return True
     else:
-        print('username or password incorrect')
+        print('username or password incorrect/')
         return 
     
 value = input('type "new"" for new user: ')
