@@ -29,4 +29,5 @@ if value == 'new':
     create_user()
     login()
 else:
+    print ('user found')
     login()
