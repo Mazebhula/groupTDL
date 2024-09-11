@@ -5,11 +5,15 @@ def create_user():
      from getpass import getpass
      
      username = input('Username: ')
-     password = hashlib.sha256(getpass('password: '  ).encode()).hexdigest()
-     #print(password)
-     users[username]=password
-     return
- 
+     if " " in username:
+         print("ERROR!, username must not contain spaces")
+         return create_user()
+     else:
+        password = hashlib.sha256(getpass('password: '  ).encode()).hexdigest()
+        #print(password)
+        users[username]=password
+        return
+     
 def login():
      
     import hashlib
