@@ -8,9 +8,11 @@ def create_user():
      if " " in username:
          print("ERROR!, username must not contain spaces")
          return create_user()
+
      else:
-        password = hashlib.sha256(getpass('password: '  ).encode()).hexdigest()
-        #print(password)
+        password = hashlib.sha256(getpass('Type in new password: '  ).encode()).hexdigest()
+        #print("password stored is : "+password)
+        
         users[username]=password
         return
      
@@ -22,16 +24,21 @@ def login():
     username = input('username: ')
     pasid = hashlib.sha256(getpass('password: ').encode()).hexdigest()
     if pasid== users[username]:
-        print('GTF0')
+        print('welcome '+username +" you have succesfully logged in")
         return True
     else:
         print('username or password incorrect/')
         return 
     
-value = input('type "new"" for new user: ')
-if value == 'new':
-    create_user()
-    login()
-else:
+value = input('if you are a new user type "new"" for new user: ')
+try:
+
+    if value == 'new':
+        create_user()
+        login()
+except:
+    print("error")
+    
     print ('user found')
-    login()
+    create_user()
+
