@@ -1,5 +1,6 @@
 
 users = dict()
+
 def create_user():
      import hashlib
      from getpass import getpass
@@ -29,16 +30,20 @@ def login():
     else:
         print('username or password incorrect/')
         return 
-    
-value = input('if you are a new user type "new"" for new user: ')
-try:
 
-    if value == 'new':
+
+def start():
+    value = input('type in log in or sign up: ')
+    if value.upper() == 'SIGN UP':
         create_user()
         login()
-except:
-    print("error")
-    
-    print ('user found')
-    create_user()
+    elif value.upper() == 'LOGIN':
+        print ('Input Details')
+        login()
+    else:
+        print('Sign up or Login')
+        start()
+    return 
+start()
+
 
